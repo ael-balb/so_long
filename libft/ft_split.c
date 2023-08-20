@@ -6,11 +6,11 @@
 /*   By: ael-balb <ael-balb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:53:00 by ael-balb          #+#    #+#             */
-/*   Updated: 2023/08/14 18:01:27 by ael-balb         ###   ########.fr       */
+/*   Updated: 2023/08/19 16:10:21 by ael-balb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../so_long.h"
 
 int	ft_calcul_w(char const *s, char c)
 {

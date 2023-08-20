@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-balb <ael-balb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 17:47:56 by ael-balb          #+#    #+#             */
-/*   Updated: 2023/08/19 16:24:02 by ael-balb         ###   ########.fr       */
+/*   Created: 2023/08/14 17:51:43 by ael-balb          #+#    #+#             */
+/*   Updated: 2023/08/19 17:35:40 by ael-balb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../so_long.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
+int	ft_strcmp(const char *str1, const char *str2)
+{
+	int	i;
 
-# include <stdlib.h>
-# include <fcntl.h>
-# include <unistd.h>
-
-size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s1);
-char	*ft_strjoin(char *s1, char *s2);
-int		ft_strchr(char *str);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-char	*get_next_line(int fd);
-
-#endif
+	i = 0;
+	while (str1[i] || str2[i])
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (0);
+}

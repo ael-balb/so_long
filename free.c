@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-balb <ael-balb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 17:51:43 by ael-balb          #+#    #+#             */
-/*   Updated: 2023/08/14 18:02:56 by ael-balb         ###   ########.fr       */
+/*   Created: 2023/08/19 15:31:25 by ael-balb          #+#    #+#             */
+/*   Updated: 2023/08/19 18:43:27 by ael-balb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	free_map(char **map)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (n == 0)
-		return (0);
-	while ((s1[i] || s2[i]) && (s1[i] == s2[i]) && (i < n - 1))
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	while (map[i])
+		free(map[i++]);
+	free(map);
+}
+
+int	free_game(void *clear)
+{
+	t_game	*game;
+
+	game = (t_game *)clear;
+	free(game->map->player);
+	free(game->map->map);
+	free(game->map);
+	free(game);
+	exit(0);
+	return (1);
 }

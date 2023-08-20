@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   ft_reading_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-balb <ael-balb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 18:05:42 by ael-balb          #+#    #+#             */
-/*   Updated: 2023/08/14 18:06:40 by ael-balb         ###   ########.fr       */
+/*   Created: 2023/08/19 15:35:54 by ael-balb          #+#    #+#             */
+/*   Updated: 2023/08/19 16:26:26 by ael-balb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	error_msg(void)
+void	error_map(void)
 {
-	ft_putstr_fd(RED"Error : empty or incorfirmed map \n", 2);
+	ft_putstr_fd(RED"Error : empty or invalid map !\n", 2);
 	exit (1);
 }
 
-char	**read_map(char *path)
+char	**ft_reading_map(char *path)
 {
 	char	*line;
 	char	*map;
@@ -39,8 +39,8 @@ char	**read_map(char *path)
 		free(line);
 	}
 	close(fd);
-	if (map[0] == '\0' || map[map_x(&map) - 1] == '\n')
-		error_msg();
+	if (map[0] == '\0' || map[x_map(&map) - 1] == '\n')
+		error_map();
 	mapholder = ft_split(map, '\n');
 	free(map);
 	return (mapholder);
